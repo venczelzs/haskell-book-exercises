@@ -1,0 +1,63 @@
+-- This file has been generated from package.yaml by hpack version 0.20.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 9c550341c337e3a91de4755678f7cf911c5382ce932bd25fadad09cb1b068467
+
+name:           ciphers
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/zsvenczel/ciphers#readme>
+homepage:       https://github.com/zsvenczel/ciphers#readme
+bug-reports:    https://github.com/zsvenczel/ciphers/issues
+author:         zsvenczel
+maintainer:     venczel.zsombor@gmail.com
+copyright:      2018 Venczel Zsombor
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+cabal-version:  >= 1.10
+
+extra-source-files:
+    ChangeLog.md
+    README.md
+
+source-repository head
+  type: git
+  location: https://github.com/zsvenczel/ciphers
+
+library
+  hs-source-dirs:
+      src
+  build-depends:
+      base >=4.7 && <5
+  exposed-modules:
+      Cipher
+  other-modules:
+      Paths_ciphers
+  default-language: Haskell2010
+
+executable ciphers
+  main-is: Main.hs
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , ciphers
+  other-modules:
+      Paths_ciphers
+  default-language: Haskell2010
+
+test-suite ciphers-test
+  type: exitcode-stdio-1.0
+  main-is: Tests.hs
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , ciphers
+    , QuickCheck
+  other-modules:
+      Paths_ciphers
+  default-language: Haskell2010
