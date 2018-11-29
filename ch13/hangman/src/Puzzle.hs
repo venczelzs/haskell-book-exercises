@@ -14,7 +14,8 @@ data Puzzle = Puzzle String [Maybe Char] [Char]
 instance Show Puzzle where
   show (Puzzle _ discovered guessed) =
     (intersperse ' ' $ fmap renderPuzzleChar discovered)
-    ++ " Guessed so far: " ++ guessed
+    ++ " Guessed so far with no luck: "
+    ++ filter (\ x -> not $ (Just x) `elem` discovered) guessed
     where renderPuzzleChar :: Maybe Char -> Char
           renderPuzzleChar Nothing  = '_'
           renderPuzzleChar (Just c) =  c
